@@ -31,17 +31,6 @@
             android:layout_gravity="center_horizontal"
             android:paddingBottom="24dp" />
 
-        <!-- Email Input -->
-        <EditText
-            android:id="@+id/etRegisterEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:background="@drawable/edit_text_bg"
-            android:layout_marginBottom="16dp"/>
-
         <!-- Username Input -->
         <EditText
             android:id="@+id/etRegisterUsername"
@@ -51,7 +40,9 @@
             android:inputType="textPersonName"
             android:padding="12dp"
             android:background="@drawable/edit_text_bg"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
         <!-- Password Input -->
         <EditText
@@ -62,7 +53,9 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:background="@drawable/edit_text_bg"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
         <!-- Confirm Password Input -->
         <EditText
@@ -73,7 +66,9 @@
             android:inputType="textPassword"
             android:padding="12dp"
             android:background="@drawable/edit_text_bg"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="24dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
         <!-- Register Button -->
         <Button

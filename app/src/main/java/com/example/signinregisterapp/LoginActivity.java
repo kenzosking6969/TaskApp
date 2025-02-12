@@ -6,40 +6,45 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText etEmail, etPassword;
+    private EditText etUsername, etPassword;
     private Button btnLogin, btnGoToRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // If you renamed the layout file to activity_login.xml, use that here.
-        setContentView(R.layout.activity_main); // Or R.layout.activity_login
+        setContentView(R.layout.activity_main); // Ensure layout filename matches
 
         // Link UI elements
-        etEmail = findViewById(R.id.etEmail);
+        etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoToRegister = findViewById(R.id.btnGoToRegister);
 
-        // Sign In button click
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString().trim();
+
+                String username = etUsername.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
-                if(email.isEmpty() || password.isEmpty()){
+                if (username.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Dummy authentication logic
-                    if(email.equals("test@example.com") && password.equals("password")){
+                    AppDatabase db = AppDatabase.getDatabase(LoginActivity.this);
+                    UserDao userDao = db.userDao();
+                    User user = userDao.getUserByUsername(username);
+
+                    if (user != null && user.getPassword().equals(password)) {
                         Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
-                        // Proceed to next activity or main app screen here
+                        // Launch HomeActivity and pass the username
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
                     }
@@ -47,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Navigate to Register page
         btnGoToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

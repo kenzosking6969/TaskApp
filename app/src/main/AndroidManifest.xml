@@ -18,7 +18,7 @@
             android:name=".RegisterActivity"
             android:exported="true" />
 
-        <!-- LoginActivity is now the launcher -->
+        <!-- LoginActivity is the launcher -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -29,6 +29,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Home/Dashboard Activity -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SignInRegisterApp" />
+
+        <!-- Profile Activity -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SignInRegisterApp" />
+
+        <!-- Settings Activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SignInRegisterApp" />
 
     </application>
 

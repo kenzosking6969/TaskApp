@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Main App Theme -->
-    <style name="Theme.SignInRegisterApp" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.SignInRegisterApp" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Apply color scheme to UI elements -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+
+        <!-- Customize Button and Text Input styles -->
+        <item name="buttonStyle">@style/Widget.MaterialComponents.Button</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
     </style>
+
 
 </resources>
