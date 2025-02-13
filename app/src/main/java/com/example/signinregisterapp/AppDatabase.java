@@ -5,9 +5,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {User.class}, version = 1)
+@Database(entities = {Task.class, User.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract UserDao userDao();
+    public abstract TaskDao taskDao();
+    public abstract UserDao userDao();  // New DAO for user authentication
 
     private static volatile AppDatabase INSTANCE;
 
@@ -17,8 +18,8 @@ public abstract class AppDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     AppDatabase.class, "app_database")
-                            // WARNING: allowMainThreadQueries is for demo purposes only.
-                            .allowMainThreadQueries()
+                            .fallbackToDestructiveMigration() // Destructive migration for development
+                            .allowMainThreadQueries()         // For demo only; use Async for production.
                             .build();
                 }
             }

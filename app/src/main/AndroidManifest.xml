@@ -13,12 +13,12 @@
         android:theme="@style/Theme.SignInRegisterApp"
         tools:targetApi="31">
 
-        <!-- Declare the RegisterActivity -->
+        <!-- Register Activity -->
         <activity
             android:name=".RegisterActivity"
             android:exported="true" />
 
-        <!-- LoginActivity is the launcher -->
+        <!-- Login Activity (Launcher) -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -33,6 +33,18 @@
         <!-- Home/Dashboard Activity -->
         <activity
             android:name=".HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SignInRegisterApp" />
+
+        <!-- Add Task Activity -->
+        <activity
+            android:name=".AddTaskActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SignInRegisterApp" />
+
+        <!-- Task Detail Activity -->
+        <activity
+            android:name=".TaskDetailActivity"
             android:exported="true"
             android:theme="@style/Theme.SignInRegisterApp" />
 
